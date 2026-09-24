@@ -1,4 +1,4 @@
-# Exercice 1 - Le local minimal
+# Exercice 1 - Le local minimal Bonjour
 
 ## Consigne
 Ecrivez le fichier de projet de votre salle et faites-le construire. Le programme n'a rien a faire : une fonction main qui rend zero suffit. Rendez le fichier et la sortie de `jenga build`.
