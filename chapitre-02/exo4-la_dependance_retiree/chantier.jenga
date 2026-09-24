@@ -1,0 +1,20 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+# chantier - Jenga Workspace
+# Exercice 4 : module qui depend lui-meme d'un module retire
+
+from Jenga import *
+
+with workspace("chantier"):
+    configurations(['Debug', 'Release'])
+    targetoses([TargetOS.WINDOWS, TargetOS.LINUX, TargetOS.ANDROID])
+    targetarchs([TargetArch.X86_64, TargetArch.ARM64])
+
+    with project("CabineTest"):
+        consoleapp()
+        language("C++")
+        location("CabineTest")
+        files(["src/main.cpp", "include/**.hpp"])
+        # La definition de Accueil::saluer() n'est plus compilee :
+        # le fichier src/Accueil.cpp a ete retire de "files".
