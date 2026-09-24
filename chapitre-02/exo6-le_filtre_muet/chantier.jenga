@@ -1,0 +1,21 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+# chantier - Jenga Workspace
+# Exercice 6 : filtre dont la condition est fausse sur ma machine (hote Windows)
+
+from Jenga import *
+
+with workspace("chantier"):
+    configurations(['Debug', 'Release'])
+    targetoses([TargetOS.WINDOWS, TargetOS.LINUX, TargetOS.ANDROID])
+    targetarchs([TargetArch.X86_64, TargetArch.ARM64])
+
+    with project("CabineTest"):
+        consoleapp()
+        language("C++")
+        location("CabineTest")
+        files(["main.cpp"])
+
+        with filter("system:Linux"):
+            defines(["PLATEFORME_LINUX"])
