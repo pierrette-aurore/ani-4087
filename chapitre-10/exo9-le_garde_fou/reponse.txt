@@ -1,1 +1,6 @@
 
+Le chemin fautif : c'est le continue de l'image 3 (signe C). Il saute le End écrit en bas du corps de boucle, donc la trame reste ouverte. À l'image 4, Wait et Begin sont refusés : cela fait 2 refus, la boucle n'a pas d'état et N devient V, donc l'image n'est pas rendue. La trame ne se referme que parce que le End de cette image est atteint. Le return de l'image 6 refait la même faute, et là plus rien ne la rattrape.
+
+Pourquoi le destructeur : en C++, le destructeur d'un objet local est appelé à la sortie de sa portée, quel que soit le chemin : fin normale du corps, continue, break, return ou exception. Le End est écrit une seule fois, dans le destructeur, et il devient impossible de l'oublier sur un chemin. La classe n'est pas copiable : une copie fermerait la trame deux fois, et la seconde fin serait refusée.
+
+Le return : sans garde, le return de l'image 6 quitte la boucle sans End. La trame reste ouverte (OUVERTE OUI), avec 5 débuts pour 4 fins, et la session refuserait tous les Wait suivants : on ne repart jamais. Avec garde, le return détruit le garde en quittant la portée, donc End est appelé : OUVERTE NON, 6 débuts pour 6 fins, et aucun refus.
