@@ -82,3 +82,11 @@ int main() {
     std::cout << "FAUTIVES " << fautives << "\n";
     return 0;
 }
+
+// resultat 
+//1 OK
+//2 OK
+//3 FAUTE 7 END_IMAGE_PRISE
+//4 FAUTE 1 VUES_SANS_WAIT
+//JUSTES 2
+//FAUTIVES 2
