@@ -1,4 +1,4 @@
- #include <iostream>
+#include <iostream>
 #include <string>
 #include <vector>
 
@@ -96,9 +96,11 @@ int main() {
     if (variables.empty()) {
         std::cout << "VARIABLE AUCUNE\n";
     }
+ 
     for (const std::string& v : variables) {
         std::cout << "VARIABLE " << v << "\n";
     }
+ 
     std::cout << "PART " << part << "\n";
     return 0;
 }
