@@ -72,8 +72,3 @@ int main() {
     return 0;
 }
 
-// resultats
-//ENTETE 6
-//IGNOREES 3
-//VARIABLE NK_XR_LOADER
-//PART 66
